@@ -38,10 +38,10 @@ Install the development version from GitHub via the package `"devtools"`:
 ```r
 # development version from GitHub:
 #install.packages("devtools") 
-# install "cointoss" (without vignettes)
-devtools::install_github("gastonstat/cointoss")
-# install "cointoss" (with vignettes)
-devtools::install_github("gastonstat/cointoss", build_vignettes = TRUE)
+# install "binomial" (without vignettes)
+devtools::install_github("ifc090/Binomial3")
+# install "binomial" (with vignettes)
+devtools::install_github("ifc090/Binomial3", build_vignettes = TRUE)
 ```
 
 
