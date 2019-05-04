@@ -1,0 +1,66 @@
+---
+output:
+  github_document:
+    html_preview: false
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+
+## Overview
+
+`"binomial"` is a minimal [R](http://www.r-project.org/) implementation for the statistical analysis of a simple binomial function.
+
+* `bin_choose()` returns a value given t choose s
+* `bin_distribution` returns a list given the probability of success given trials
+* `plot.bindis()` plots the bin distribution
+* `print.summary.binvar()` prints the summary based on a binomial variable
+
+
+## Motivation
+
+This package has been developed to describe some of the concepts
+behind the creation of an R project, and to execute a basic concept such as binomials.
+
+
+## Installation
+
+Install the development version from GitHub via the package `"devtools"`:
+
+```r
+# development version from GitHub:
+#install.packages("devtools") 
+# install "cointoss" (without vignettes)
+devtools::install_github("gastonstat/cointoss")
+# install "cointoss" (with vignettes)
+devtools::install_github("gastonstat/cointoss", build_vignettes = TRUE)
+```
+
+
+## Usage
+
+```{r}
+library(Binomial3)
+
+# binchoose
+bin_choose(6, 5)
+
+# bin distrib/cumulative and plot
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+plot.bindis(dis1)
+
+
+# summary and print
+bin1 <- bin_variable(10, 0.3)
+binsum1 <- summary.binvar(bin1)
+print.summary.binvar(binsum1)
+
+```

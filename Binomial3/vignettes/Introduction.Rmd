@@ -1,0 +1,89 @@
+---
+title: "Binomial fun"
+author: "Isaac Chap"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Binomial fun}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+library(Binomial3)
+```
+
+
+## Binomial
+
+The package `"binomial"` is a minimal implementation for the statistical analysis of a simple binomial function.
+
+## Creating private check functions
+
+The first step is to create private check functions that checks if all the variables used 
+in a binomial are valid values:
+
+```{r check private funcs}
+# check_prob
+# check_trials
+# check_success
+```
+
+They are private functions that are not meant to be called, but are used within the main functions and method functions.
+
+Then, I created private aux functions that are also not meant to be called as a main function, but serves to be called by the main functions as well.
+
+```{r aux private funcs}
+# aux_mean
+# aux_mode
+# aux_variance 
+```
+
+## Main functions
+
+Then I got into creating the main functions that are meant to be called by the user.
+
+```{r binchoose}
+bin_choose(6, 5)
+bin_choose(4, 5)
+```
+
+bin_choose(6, 5) returns a nice value of 6 (6 choose 5), but bin_choose(4, 5) would print an error message.
+
+## Plot
+
+Eventually, through more functions the first part of the end results is plot.bindis and plot.bincum.
+```{r plot with bindis bincum}
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+cum1 <- bin_cumulative(trials = 5, prob = 0.5)
+plot.bindis(dis1)
+plot.bincum(cum1)
+```
+
+bin_distribution and bin_cumulative displays a table of the results based on trials and probability, whereas plot.bindis/bincum can plot this dataframe into a nice graph.
+
+## Summary
+
+Final part is to create a summary utilizing all the private aux functions, then creating functions that prints it out nicely.
+
+```{r printsummary}
+
+bin1 <- bin_variable(10, 0.3)
+print.binvar(bin1)
+
+binsum1 <- summary.binvar(bin1)
+print.summary.binvar(binsum1)
+```
+
+## Extra
+
+Just incase you want to use individual functions to figure out mean, mode etc.
+```{r bin other functions}
+
+bin_mean(10, 0.4)
+bin_variance(10, 0.4)
+bin_mode(10, 0.4)
+bin_skewness(10, 0.4)
+bin_kurtosis(10, 0.4)
+```
